@@ -4,20 +4,17 @@ Project for the procedural programming course of Vilnius University.
 
 # Sudoku Page Generator (Stage 2 Module)
 
-This repo contains a small **C module** that can:
+This repo contains a small c module that can:
 
-- generate a Sudoku **solution**
-- generate a Sudoku **puzzle** (some cells removed)
-- export a **static HTML page** (pure HTML + your existing CSS) with the puzzle pre-filled
-- optionally produce a tiny **interactive** page (via `sudoku.js`, no dependencies)
-
-It’s intentionally kept simple (C99, no external libraries, no “advanced” Sudoku tricks).
+- generate a sudoku solution
+- generate a sudoku puzzle (some cells removed)
+- export a static HTML page with the puzzle pre-filled
+- optionally produce a tiny interactive page (via `sudoku.js`, no dependencies)
 
 ## Files / architecture
 
 - **`sudoku_module.h`**
-  - Public API (types + function declarations).
-  - This is the file other teams / your Stage 3 app should include.
+  - Public API (types + function declarations)
 
 - **`sudoku_module.c`**
   - Implementation of the module.
@@ -50,9 +47,9 @@ In code this is:
 
 ## How the solver works (simple backtracking)
 
-`sudoku_solve()` uses a beginner-friendly algorithm:
+`sudoku_solve()` uses a simple algo:
 
-1. Find the first empty cell (value `0`), scanning row-major.
+1. Find the first empty cell (value `0`), scanning row major.
 2. Try numbers `1..9` (shuffled for variety).
 3. For each number, check if it can be placed:
    - not already in the same row
@@ -80,8 +77,8 @@ Randomness:
 
 `sudoku_generate_puzzle()` does:
 
-1. Generate a full valid **solution**.
-2. Copy solution → puzzle.
+1. Generate a full valid solution.
+2. Copy solution -> puzzle.
 3. Remove numbers at random positions until we reach the target “holes” count:
    - Easy: 35 empty cells
    - Medium: 45 empty cells
@@ -93,14 +90,14 @@ Randomness:
 
 Important note:
 
-- The puzzle is guaranteed to be **solvable**
-- It is **not guaranteed to have a unique solution** (uniqueness checking would add complexity)
+- The puzzle is guaranteed to be solvable
+- It is not guaranteed to have a unique solution (uniqueness checking would add complexity)
 
 ## HTML export (how it matches your UI)
 
 `sudoku_write_html_page()` writes a self-contained HTML file that matches the structure you already have:
 
-- `<div class="container">` contains **81** `<div class="cell ...">` elements
+- `<div class="container">` contains 81 `<div class="cell ...">` elements
 - values are rendered row-major (row 0 col 0 first, then row 0 col 1, …)
 
 Cell classes:
