@@ -1,0 +1,269 @@
+@font-face {
+    font-family: Magneto;
+    src: url(MAGNETOB.TTF);
+}
+
+*{
+    box-sizing: border-box;
+    font-family: Magneto;
+}
+body{
+    background-image:url(background.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size:cover;
+}
+
+header{
+    text-align: center;
+    margin-left: 50px;
+    margin-right: 50px;
+
+}
+
+header h1{
+    border: 7px solid;
+    border-radius: 20px;
+    background-color: #dabfae;
+    display: inline-block;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 4em;
+    box-shadow: 3px 3px 5px white, -3px -3px 5px white;
+}
+
+
+main{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 10px;
+    margin-bottom: 100px;
+}
+
+main .game .score{
+    border: 3px solid;
+    border-radius: 20px;
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    padding: 10px;
+    font-weight: bold;
+    font-size: large;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+main .game{
+    border: 7px solid;
+    border-radius: 20px;
+    display:inline-block;
+    padding: 15px;
+    background-color: #dabfae;
+    box-shadow: 3px 3px 5px white, -3px -3px 5px white;
+}
+
+main .game .container{
+     display:inline-grid;
+     grid-template-columns: repeat(9, 50px);
+     grid-template-rows: repeat(9, 50px);
+     background-color: white;
+}
+
+main .game .container .cell{
+      width: 50px;
+      height: 50px;
+      border: 1px solid #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2em;
+      user-select: none;
+}
+
+main .game .container .cell:nth-child(-n + 9) {
+    border-top-width: 4px;
+}
+
+main .game .container .cell:nth-child(9n) {
+    border-right-width: 4px;
+}
+
+main .game .container .cell:nth-child(n + 73) {
+    border-bottom-width: 4px;
+}
+
+main .game .container .cell:nth-child(9n + 1) {
+    border-left-width: 4px;
+}
+
+
+
+main .game .container .cell:nth-child(9n + 3),
+main .game .container .cell:nth-child(9n + 6) {
+    border-right-width: 4px;
+}
+
+
+main .game .container .cell:nth-child(n + 28):nth-child(-n + 36),
+main .game .container .cell:nth-child(n + 55):nth-child(-n + 63) {
+    border-top-width: 4px;
+}
+
+main .game .container .cell:hover{
+    background-color: rgb(153, 11, 58);
+}
+
+
+main .game .container .cell.editable{
+    cursor: pointer;
+}
+
+main .game .container .cell.given{
+    font-weight: bold;
+}
+
+main .game .container .cell.selected{
+    outline: 3px solid #2a7fff;
+    outline-offset: -3px;
+}
+
+main .game .container .cell.correct{
+    color: #0b6b0b;
+}
+
+main .game .container .cell.wrong{
+    color: #b00020;
+}
+
+main .game .container .cell.locked{
+    opacity: 0.65;
+    cursor: not-allowed;
+}
+
+
+main .difficulty{
+    border: 7px solid;
+    border-radius: 20px;
+    background-color: #dabfae;
+    display:grid;
+    align-items: start;
+    grid-template-columns: auto;
+    grid-template-rows: auto auto auto;
+    width: 15%;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    height: 300px;
+    box-shadow: 3px 3px 5px white, -3px -3px 5px white;
+}
+
+main .difficulty h2{
+    text-align: center;
+    border: 5px solid;
+    border-radius: 20px;
+    padding: 5px;
+    background-color: white;
+    grid-row: 1;
+}
+
+main .difficulty ul{
+    list-style: none;
+    padding: 0;
+    grid-row: 2;
+}
+
+main .difficulty li{
+    border: 4px solid;
+    border-radius: 20px;
+    background-color: white;
+    display: block;
+    text-align: center;
+    margin-bottom: 5px;
+    font-size: large;
+    font-weight: bold;
+}
+
+main .difficulty li a{
+    display: block;
+    color: inherit;
+    text-decoration: none;
+}
+
+main .difficulty .buttons{
+    grid-row: 3;
+    text-align: center;
+}
+
+main .difficulty .buttons .b{
+    border:4px solid;
+    border-radius: 20px;
+    width: 25%;
+    background-color: white;
+    font-weight: bold;
+}
+
+main .difficulty .buttons .b:hover{
+   background-color: wheat;
+   cursor: pointer;
+}
+
+main .difficulty li:hover{
+    background-color: wheat;
+    cursor: pointer;
+}
+
+main .difficulty .active{
+    background-color: white;
+}
+
+main .leaderboard{
+    border: 7px solid;
+    border-radius: 20px;
+    background-color: #dabfae;
+    display:inline-block;
+    width: 22%;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding: 20px;
+    height: 500px;
+    box-shadow: 3px 3px 5px white, -3px -3px 5px white;
+}
+main .leaderboard h2{
+    text-align: center;
+    border: 5px solid;
+    border-radius: 20px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    background-color: white;
+}
+
+main .leaderboard ol{
+    padding-left: 0;
+    list-style-position:inside ;
+}
+
+main .leaderboard li{
+    border: 4px solid;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    text-align: left;
+    padding-left: 5px;
+    margin-bottom: 5px;
+    font-size: large;
+    font-weight: bold;
+    background-color: white;
+}
+
+
+main .leaderboard li:hover{
+    background-color: wheat;
+}
+
+footer{
+    background-color: grey;
+}
